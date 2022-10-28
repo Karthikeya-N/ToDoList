@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: rgb(84, 186, 226);
+  width: 100%;
+  min-height: 150vh;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  /* margin:auto; */
+}
+
+.todo_box {
+  background-color: white;
+  width: 85%;
+  min-height: 100vh;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  color: black;
+}
+
+.button-add {
+  background-color: rgb(84, 186, 226);
+  padding: 7px;
+  color: white;
+  margin-left: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.task {
+  padding: 5px;
+  width: 70%;
+}
+
+/* .result {
+  margin:auto;
+  margin-top:10px;
+  padding:3px;
+  color:rgb(27, 166, 221);
+  background-color: rgb(235, 240, 239);
+  border:1px solid white;
+  box-sizing: border-box;
+  width:70%;
+}  */
+.table-list {
+  margin-top: 12px;
+  padding: 3px;
+}
+
+.result {
+  color: black;
+  font-size: large;
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+  background-color: white;
+  padding: 1px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
