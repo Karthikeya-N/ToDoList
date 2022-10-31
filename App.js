@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './App.css';
 import Header from './Components/Header.js';
 import Form from './Components/Form.js';
@@ -18,13 +18,12 @@ function App() {
     //  copy.push(value)
     setArrays([...arrays, value]) // [    1,2   , 3 ] 
   }
-  localStorage.setItem('arrayValue', JSON.stringify(arrays));
-  //input Add panna localstorage application la show agum
 
   const handleDelete = (deleteIndex) => {
     const newArray1 = arrays.filter((data, index) => index !== deleteIndex)
     //filter condtion true eruntha "data" return pannum.
     setArrays(newArray1);
+    localStorage.setItem(JSON.stringify(newArray1));
   }
 
   const handleEdit = (editValue, index) => {
@@ -46,13 +45,14 @@ function App() {
       })
       console.log(newArray2);
       setArrays(newArray2);
+      localStorage.setItem('arraysValue', JSON.stringify(newArrays2));
       setInput("");
       setIsEditing(false);
       setEditIndex(null);
     }
     else if (input !== "") {
       addToDo({ text: input, isCompleted: false });
-      //console.log(props.input+console);
+      localStorage.setItem('arraysValue', JSON.stringify([...arrays, {text: input, isCompleted: false}]));
       setInput("");
     }
   }
@@ -69,13 +69,14 @@ function App() {
       }
     })
     setArrays(newArray3);
-
-    const data = JSON.parse(localStorage.getItem('arrayValue'));
-    console.log(data);
-    //checkbox click panna localstorage la data console la retrieve pannalam
-
-    //console.log(newArray3, "check");
+    localStorage.setItem('arraysValue', JSON.stringify(newArray3));
   }
+  useEffect (() =>{
+   const data = JSON.parse(localStorage.getItem('arraysValue'));
+    //console.log(data);
+    if(data !== null)
+      setArrays(data);
+  },[])
 
   return (
     <div className="container">
